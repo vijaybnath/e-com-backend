@@ -5,10 +5,9 @@ const cors = require("cors")
 const cartRoute = require("./routes/cart_route.js")
 const app = express();
 
+
 app.use(cors());    
-
 app.use(morgan('dev'))
-
 app.use("/api", cartRoute);
 
 const PORT = process.env.PORT || 9000;
