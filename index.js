@@ -2,7 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
+const productRoute = require("./routes/product_route.js");
 const cartRoute = require("./routes/cart_route.js");
+const userRoute = require("./routes/user_route.js");
 const app = express();
 
 app.use(cors());
@@ -10,6 +12,8 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use("/api", cartRoute);
+app.use("/adminPanel", productRoute);
+app.use("/accounts", userRoute);
 
 const PORT = process.env.PORT || 9000;
 
