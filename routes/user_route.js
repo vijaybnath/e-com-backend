@@ -26,4 +26,13 @@ router.get("/viewUsers", async (req, res) => {
   }
 });
 
+// Update User Details in Database.
+router.put("/update/userDetails/:id", async (req, res) => {
+  const { id } = req.params;
+  user
+    .findByIdAndUpdate(id, req.body)
+    .then((item) => res.json({ message: "User Details Updated." }))
+    .catch((err) => res.status(400).json({ error: "Unable To Update." }));
+});
+
 module.exports = router;
