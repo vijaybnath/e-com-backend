@@ -7,9 +7,10 @@ const cartRoute = require("./routes/cart_route.js");
 const userRoute = require("./routes/user_route.js");
 const app = express();
 
-app.use(cors());
 
-app.use(morgan("dev"));
+app.use(cors());    
+
+app.use(morgan('dev'))
 
 app.use("/api", cartRoute);
 app.use("/adminPanel", productRoute);
